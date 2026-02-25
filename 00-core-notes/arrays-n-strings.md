@@ -2,11 +2,31 @@
 
 ### Overview
 
-An __array__ is a linear data structure that stores items at contiguous locations.
+An __array__ is a linear data structure that stores items of the same type at contiguous locations.
 
+Arrays allow __random access__, meaning all elements can be accessed in equal time via indexing, regardless of the array size. To access an element in O(1) time, the system calculates the physical memory address using
 
+```address = base + index * element_size```
+
+Or, in the case of multi-dimensional arrays,
+
+```address = base + (row_index * num_columns + column_index) * element_size```
 
 *Cache miss: when you ask for data that is not already in the cache; less common for contiguous arrays because data is loaded in blocks.*
+
+### Language-Specific Implementations
+
+#### Python
+
+```
+arr = []
+```
+
+#### JavaScript
+
+```
+let arr = ['a', 'b', 'c', 'd', 'e']
+```
 
 ### Fun Facts
 
