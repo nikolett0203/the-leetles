@@ -16,23 +16,7 @@ Or, in the case of multi-dimensional arrays,
 
 ### Time and Space Complexity
 
-|Operation|Complexity|Explanation|
-|---------|----------|-----------|
 
-
-### Language-Specific Implementations
-
-#### Python
-
-```
-arr = []
-```
-
-#### JavaScript
-
-```
-let arr = ['a', 'b', 'c', 'd', 'e']
-```
 
 ### Fun Facts
 
