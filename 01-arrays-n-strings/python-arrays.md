@@ -58,6 +58,57 @@ Lists are most useful in circumstances where
 Other useful methods include
 + `len()` to count the list
 
+## Tuple
+
+## Set
+
+A __set__ is an unordered, unindexed, unchageable collection of items denoted with { curly brackets }.
+
++ Duplicate items are not permitted. 
++ Items are unordered and cannot be accessed via indices.
++ Internal hashing makes search, insertion, and deletion efficient.
++ Set items themselves are unchangeable, but items can be added or removed.
++ Sets can contain different data types.
+
+A set can be created using 
++ Curly brackets: `x = {"red", "yellow", "blue"}`
++ Set method: y = `set(['a', 'b', 'c'])`
++ Frozenset method (for immutable sets): `z = frozenset(['e', 'f', 'g'])`
+
+Useful set methods include
++ `add` to insert a new element into a set: `x.add("green")`
++ `union` to combine two sets: `y.union(z)`
++ `intersection` to find common elements among two sets: `set_a.intersection(set_b)`
++ `difference` to return elements in the first set but not the second: `set_a.difference(set_b)`
++ `clear` to remove all elements from a set: `set_a.clear()`
++ `remove` to delete an element from a set: `x.remove("red")`
++ `discard` to delete an element if it's present (unlike `remove`, it doesn't return an error if the element is not found): `x.remove("orange")`
+
+Python engineers were lazy when developing the language, so the implementation of a dictionary and a set are essentially the same. The difference for sets is that only keys are meaningful, while values are given dummy objects as placeholders (e.g. `NULL`). So a set `{1, 2, 3}` would be stored internally as `{1: DUMMY, 2: DUMMY, 3: DUMMY}`.
+
+Also note that `True` and `1` are treated as duplicates in a set.
+
+|Operators||
+
+
+
+Good for "have I seen this element before?" fast lookup or membership checks
+
+## Dictionary
+
+Counting or mapping relationships
+
+
+
+
+
+
+
+
+
+
+
+
 A list doesn't store items directly. Instead, it stores references to objects in memory.
 + For immutable objects (integers, strings, booleans, tuples), when you 'change' the object in a list, you aren't actually modifying the object. Python creates a new object at a different memory address and updates the list pointer to the new object. This means that changing one variable won't change another.
 + For mutable objects (nested lists, dictionaries, etc.) within lists, it stores a pointer to that object's specific location. If you modify the nested object, you are changing the data at the existing address. For example: `A = [1, 2]`, `my_list = [A]`, `A.append(3)` will modify the original list to become `A = [1, 2, 3]`. This can lead to ghost updates where changing one variable affects others that reference the same object.
@@ -77,14 +128,3 @@ add_item(items)
 print(items) # Output: [1, 2, 3, "Surprise!"]
 ```
 Lists passed to function will be changed outside of the function as well. 
-
-## Tuple
-
-## Set
-
-Good for "have I seen this element before?" fast lookup or membership checks
-
-## Dictionary
-
-Counting or mapping relationships
-
