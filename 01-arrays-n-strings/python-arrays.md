@@ -60,10 +60,43 @@ Other useful methods include
 
 ## Tuple
 
+A __tuple__ is an ordered, unchangeable collection of items denoted with ( round brackets ).
++ Duplicate items are permitted (because of indexes).
++ Items are ordered and indexed.
++ Items cannot be changed, added, or removed after a tuple has been created.
++ Mixed types can be stored in the same tuple.
+
+A tuple can be created using
++ Round brackets: `p = ("apple",)`, note the comma for a single-value tuple
++ Tuple constructors: `q = tuple(('mango', 'pineapple', 'melon'))`, note the double brackets
+
+Elements are accessed with
++ Singular indices: `tup[0]`
++ Ranges of indices: `tup[:3]`
++ Unpacking: `a, b, c = tup`'
+
+__Slicing__ a tuple means creating a new tuple from a subset of elements of the original tuple.
++ Syntax: `[start:stop:step]`
++ Slice out first element: `tup[1:]`
++ Reverse the tuple: `tup[::-1]`
++ Subset a range: `tup[4:9]`
+
+Other useful operations include
++ Concatenation: `tup1 + tup2`
++ Deleting an entire tuple: `del tup`
++ Unpacking multiple items in a list: 
+    + `tup = (1, 2, 3, 4, 5)`
+    + `a, *b, c = tup`
+    + `print(b)` outputs `[2, 3, 4]`
+
+Tuples are most useful in circumstances where 
++ Data must be immutable (days of the week, config settings, physics constants, etc.)
++ "Parts of a whole," where the position of an element gives it meaning, such as database tuples
+    + For example, (ID, ProductName, Price) in a database, where these items are always in the same order
+
 ## Set
 
 A __set__ is an unordered, unindexed, unchageable collection of items denoted with { curly brackets }.
-
 + Duplicate items are not permitted. 
 + Items are unordered and cannot be accessed via indices.
 + Internal hashing makes search, insertion, and deletion efficient.
@@ -88,9 +121,20 @@ Python engineers were lazy when developing the language, so the implementation o
 
 Also note that `True` and `1` are treated as duplicates in a set.
 
-|Operators||
+|Operation           |Syntax  | Method                  |Description                                           |
+|--------------------|--------|-------------------------|------------------------------------------------------|
+|Union               |`a | b` |`.union()`               |Returns all elements from both sets                   |
+|Intersection        |`a & b` |`.intersection()`        |Returns elements present in both sets                 |
+|Difference          |`a - b` |`.difference()`          |Returns elements in the first set but not the second  |
+|Symmetric Difference|`a ^ b` |`.symmetric_difference()`|Returns elements in either set, but not both          |
+|Subset Check        |`a <= b`|`.issubset()`            |Returns `True` if all elements of set A are in B      |
+|Superset Check      |`a >= b`|`.issuperset()`          |Returns `True` if set A contains all elements of set B|
 
+Sets are most useful in circumstances where
++ Element uniqueness must be enforced (can use tuples to deduplicate lists)
++ Comparing two groups of data using set operators
 
+Note: you cannot put a mutable datatype, like a list or a dict, inside of a set.
 
 Good for "have I seen this element before?" fast lookup or membership checks
 
@@ -98,7 +142,8 @@ Good for "have I seen this element before?" fast lookup or membership checks
 
 Counting or mapping relationships
 
-
+Dictionary keys must be hashable, and to be hashable they must be immutable.
+SO a list can't be a key but a tuple can
 
 
 
